@@ -8,8 +8,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Document(collection = "journalEntries")
-// journalEntries is name of our collection inside journalDB database; which we have created inside resources => application.properties file
-public class JournalEntry {     // this is pojo class => plain old java object
+// journalEntries is name of our collection inside journalDB database;
+// journalDB created inside resources => application.properties file
+public class JournalEntry {
+    // this is pojo class => plain old java object
     @Id     // to make this field primary_Key
     private ObjectId id;
     private String title;

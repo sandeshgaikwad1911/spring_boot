@@ -13,8 +13,8 @@ import java.util.Optional;
 public class JournalEntryService {
     @Autowired
     private JournalEntryRepository journalEntryRepository;
-//    here we are injecting JournalEntryRepository in this class. we dont need to create like
-//    JournalEntryRepository it's an interface and its implementation is put by spring at runtime
+//    here we are injecting JournalEntryRepository in this class. we don't need to create instance using new keyword because of [@Autowired].
+//    JournalEntryRepository it's an interface and its implementation is put by spring at runtime.
 
     public void saveEntry(JournalEntry journalEntry) {      // JournalEntry is our pojo class
         journalEntryRepository.save(journalEntry);
@@ -32,6 +32,7 @@ public class JournalEntryService {
     }*/
     public Optional<JournalEntry> findJournalById(ObjectId id) {
         return  journalEntryRepository.findById(id);
+//        Optional is container object which may or may not contain non-null value;
 //        Optional<>    we make it Optional => because we may or not find data
     }
 
