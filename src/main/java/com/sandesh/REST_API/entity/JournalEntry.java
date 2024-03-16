@@ -64,21 +64,20 @@ public class JournalEntry {
     @NonNull
     private String title;
 
+    @NonNull
     private String content;
 
     private LocalDateTime date;
 
 }
 
-// to make this field primary_Key
 
-/*
-   This is simple pojo class => we have to map this with collection. @Document
-*/
+//   This is simple pojo class => we have to map this with collection. @Document
 
-/*
-     @Data => its equivalent to @Getter @Setter and many more. at compile time it generate code for us according to annotations.
-*/
+// @Id   =>   to make this field primary_Key inside collection
+
+//     @Data => its equivalent to @Getter @Setter and many more. at compile time Lombok library generate code for us according to annotations.
+
 
 /*
     journalEntries is name of our collection inside journalDB database;

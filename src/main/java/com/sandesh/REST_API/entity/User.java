@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 public class User {
 
-    @Id  // it's map with _id: ObjectId(".....") inside mongoDB.
+    @Id  // it's map with _id: ObjectId(".....") inside MongoDB.
     private ObjectId id;
 
     @Indexed(unique = true)
@@ -30,7 +30,7 @@ public class User {
 }
 
 /*
-    @DBRef => means we are creating ref of JournalEntry inside [users] collections.
+    @DBRef => means we are creating ref of JournalEntry class inside [users] collections.
     so, User will have ref of @Document(collection = "journalEntries") collections.
 
     @Indexed(unique = true)     // indexing will not happen automatically we have to do it manually inside application.properties.

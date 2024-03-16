@@ -13,7 +13,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
     @Autowired
     private UserService userService;
 
@@ -42,12 +41,29 @@ public class UserController {
         }
     }
 
+    @GetMapping("/{username}")
+    public ResponseEntity<User> getUser(@PathVariable String username) {
+        try{
+           User user =  userService.findUserByUsername(username);
+//            System.out.println("User=>"+" "+user);
+           if(user == null) {
+               return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+           }
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PutMapping("/update/{username}")
     public ResponseEntity<?> updateUser(@PathVariable String username , @RequestBody User user) {
         try{
-            User existingUser = userService.findByUsername(username);
-            System.out.println("existingUser"+" "+existingUser);
+            User existingUser = userService.findUserByUsername(username);
+//            System.out.println("existingUser"+" "+existingUser);
             if(existingUser != null) {
+//                here getting username and password from Request body,
+//                if it is not empty, we set new username and password
+//                if it is empty, we set existing username and password
                 existingUser.setUsername(!user.getUsername().isEmpty() ? user.getUsername() : existingUser.getUsername());
                 existingUser.setPassword(!user.getPassword().isEmpty() ? user.getPassword() : existingUser.getPassword());
                 userService.saveUser(existingUser);

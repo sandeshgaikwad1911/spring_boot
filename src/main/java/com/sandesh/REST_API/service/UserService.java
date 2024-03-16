@@ -17,15 +17,17 @@ public class UserService {
 
     public  void saveUser(User user){userRepository.save(user);}
 
+    public void deleteUserById(ObjectId id) {
+        userRepository.deleteById(id);
+    }
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public User findByUsername(String username) {
-        System.out.println("username"+" "+username);
-        return userRepository.findByUsername(username);
+    public User findUserByUsername(String username) {
+//        System.out.println("username"+" "+username);
+        return userRepository.findUserByUsername(username);
     }
-    public void deleteUserById(ObjectId id) {
-        userRepository.deleteById(id);
-    }
+
 }
