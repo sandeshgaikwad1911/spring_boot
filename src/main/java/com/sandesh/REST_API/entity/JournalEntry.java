@@ -74,7 +74,7 @@ public class JournalEntry {
 
 //   This is simple pojo class => we have to map this with collection. @Document
 
-// @Id   =>   to make this field primary_Key inside collection
+//     @Id   =>   to make this field primary_Key inside collection
 
 //     @Data => its equivalent to @Getter @Setter and many more. at compile time Lombok library generate code for us according to annotations.
 
